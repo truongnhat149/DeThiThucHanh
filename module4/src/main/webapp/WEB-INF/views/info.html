@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <th:block th:replace="layout/head::head" />
+    <th:block th:replace="layout/script::script" />
+    <title>Thông tin thành phố</title>
+</head>
+<body>
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-8">
+            <h2 class="card-title d-inline">Thành phố </h2>
+        </div>
+        <div class="col-4 text-end">
+            <a href="/" class="btn btn-outline-primary">
+                <span>Xem danh sách thành phố</span>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+
+            </thead>
+            <tbody>
+            <th:block th:each="city, count : ${cities}">
+                <h2 class="card-title d-inline" th:text="${city.cityName}"></h2>
+
+                <tr>
+                    <td>Tên:</td>
+                    <td th:text="*{city.cityName}"></td>
+                </tr>
+                <tr>
+                    <td>Quốc gia:</td>
+                    <td th:text="*{city.country}"></td>
+                </tr>
+                <tr>
+                    <td>Diện tích:</td>
+                    <td th:text="*{city.area}"></td>
+                </tr>
+                <tr>
+                    <td>Dân số:</td>
+                    <td th:text="*{city.population}"></td>
+                </tr>
+                <tr>
+                    <td>GDP:</td>
+                    <td th:text="*{city.gdp}"></td>
+                </tr>
+                <tr>
+                    <td>Giới thiệu:
+                    <textarea name="" th:text="*{city.description}" id="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+                <hr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
